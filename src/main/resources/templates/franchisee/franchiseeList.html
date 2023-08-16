@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<th:block layout:fragment="css">
+	<style>
+/* Reset some default styles */
+    body, h1, h2, h3, p, ul, li, button {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Basic styles for the layout */
+    .contentsWrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .tab01 ul {
+      display: flex;
+    }
+
+    .tab01 li {
+      margin-right: 10px;
+    }
+
+    .tab01 button {
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab01 button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .contentsBox01 {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 5px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .contentsBox01 h5 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .contentsBox01 p {
+      font-size: 18px;
+    }
+
+    .branch_intro01 {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #555;
+    }
+
+    .branch_intro02 {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #777;
+    }
+
+    .branch_reg {
+      background-color: #f0f0f0;
+    }
+
+    .branch_reg .step {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .branch_reg .step li {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+
+    .branch_reg .c_btn {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .branch_reg .c_btn a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .branch_reg .c_btn a:hover {
+      background-color: #444;
+    }
+       body, h1, h2, h3, p, ul, li, button {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Set the black background for the entire page */
+    
+
+    /* Basic styles for the layout */
+    .contentsWrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+</style>
+</th:block>
+<div layout:fragment="content">
+
+	<div class="contentsWrap eventWrap">
+
+		<div class="contentsBox01 bg_w">
+			<div class="web_container">
+				<h3>가맹점 문의</h3>
+					<div class="subtitWrap">
+				<h3>고객센터</h3>
+					<!-- <div class="tab01 m_shadow">
+		
+						<ul>
+							<li><button type="button">
+									<span>공지사항</span>
+								</button></li>
+							<li><button type="button">
+									<span>feane앱 이용안내</span>
+								</button></li>
+							<li><button type="button">
+									<span>FAQ</span>
+								</button></li>
+							<li><button type="button">
+									<span>문의</span>
+								</button></li>
+							<li class="on"><button type="button">
+									<span>가맹점모집</span>
+								</button></li>
+							
+						</ul>
+					</div> -->
+				</div> 
+			</div>
+		</div>
+		<div class="tab_cont">
+			<h4 class="hide">가맹점모집</h4>
+			<div class="contentsBox01 bg_w branch_intro01"
+				style="background-image: url(images/buger7.jpg)";>
+				<div class="web_container">
+					<div class="msgbox">
+						<p class="keyword">
+							<strong>TASTE IS KING</strong>
+						</p>
+						<h5 class="tit">
+							<span>feane이 여러분과 </span><span>함께 새로운 성공을 준비합니다.</span>
+						</h5>
+						<p>세계 최대 글로벌 외식 브랜드 중 하나인 feane은 1954년 미국 마이애미에서 시작하여 괄목할 만한
+							성장과 함께 1,400만명 이상의 feane 매니아들에게 큰 사랑을 받고 있습니다. 'TASTE IS KING'
+							이라는 슬로건으로 그 어떤 햄버거보다 최고의 맛과 품질을 선보이고 있으며 고객을 위한 feane의 최고의 서비스는
+							앞으로도 계속 될 것입니다.</p>
+					</div>
+				</div>
+			</div>
+			<div class="contentsBox01 branch_intro02"
+				style="background-image: url(images/buger6.JPG)";>
+				<div class="web_container container01">
+					<div class="msgbox">
+						<p class="WEB tit">
+							<img src="">
+						</p>
+						<p class="MOB tit">
+							<strong>feane과 함께 새로운 성공의 파트너가 <br>되시길 기원합니다.
+							</strong>
+						</p>
+						<div class="txt">
+							<p>feane 코리아에서 뜨거운 열정과 강한 의지로 새로운 성공 신화를 만드실 '사업파트너를 모십니다.
+								feane 코리아는 1984년 종로에 처음으로 개점한 이후 지금까지 뛰어난 맛과 품질 그리고 최선을 다하는 고객
+								서비스를 바탕으로 성장해왔습니다.</p>
+							<p>고객들의 많은 성원에 보답하고자 feane 코리아에서는 2013년부터 '프랜차이즈'사업을 진행해 오고
+								있습니다. 많은 관심을 부탁드리며 저희 feane은 사업 파트너분들의 성공을 위해 최고의 프랜차이즈 서비스를 제공할
+								것입니다. 자세한 내용은 현재 준비중에 있으며 빠른 시간 내에 정식 안내 드릴 예정입니다.</p>
+							<p>프랜차이즈 매장 운영 외에도 다양한 투자에 대한 사전 상담을 할 수 있는 코너를 개설하였으니 많은 관심과
+								성원, 그리고 참여를 부탁드립니다.</p>
+						</div>
+					</div>
+					<div class="condition"    style="color: black";>
+						<dl>
+							<dt class="tit01 tit_ico location">
+								<span>입지 조건</span>
+							</dt>
+							<dd>
+								<ul class="txtlist01">
+									<li><span>역세권에 위치하여 유동인원이 풍부하고 </span><span>배후에 사무실
+											및 아파트 밀집 지역</span></li>
+									<li><span>서울을 중심으로 수도권이 우선이며 그 외 지역은 </span><span>광역시
+											중심 주거 인구 증가 지역</span></li>
+									<li>도로변이며 접근성과 가시성이 좋은 지역</li>
+									<li>교통 및 유동인구 통행량이 많은 지역</li>
+									<li>중·소·신도시 및 군소재지 지역</li>
+								</ul>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="tit01 tit_ico king">
+								<span>임대 면적</span>
+							</dt>
+							<dd>
+								<ul class="txtlist01">
+									<li><span>실평수 40평 이상 (1 - 2층일 경우 1층 30평 이상)<br>Drive
+											Thru, Food court, 특수상권 내 면적은 상담 협의
+									</span></li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<div class="contentsBox01 bg_w branch_reg">
+				<div class="web_container">
+					<h5 class="tit">가맹점 신청방법</h5>
+					<ol class="step">
+						<li><strong>신청서 작성</strong></li>
+						<li><strong>신청서 접수</strong></li>
+						<li><strong>전화 상담</strong></li>
+						<li><strong>대면 상담</strong></li>
+					</ol>
+					<div class="c_btn">
+
+						<br> <a href="mailto:vmfkdcm3@naver.com?Subject=가맹점신청문의"
+							target="_top">가맹점 신청 문의 : vmfkdcm3@naver.com</a>
+						<p class="c_btn_txt">· 가맹 신청으로 부터 1주 이내 지역 담당자가 전화 연락을 드립니다.</p>
+					</div>
+					<div class="tableWrap">
+						<ul>
+							<li><ul>
+									<li><h4>개설비용</h4></li>
+									<li class="tableBox"><p class="table_tit">1. 예치 가맹금</p>
+										<p class="cap">[단위: 천원, 부가세포함]</p>
+										<table class="table">
+											<thead>
+												<tr style="font-size: 1.2em;">
+													<th scope="col">구분</th>
+													<th scope="col">금액</th>
+													<th scope="col">비교</th>
+												</tr>
+											</thead>
+											<tbody class="text_left">
+												<tr>
+													<td><strong>가맹비</strong></td>
+													<td><span class="txt_center">34,031</span></td>
+													<td>미화 27,500달러(USD)를 한화(KRW)로 환산 적용</td>
+												</tr>
+												<tr>
+													<td><strong>최초교육비</strong></td>
+													<td><span class="txt_center">3,135</span></td>
+													<td>직원 교육비</td>
+												</tr>
+												<tr>
+													<td><strong>계약전 사전심사비</strong></td>
+													<td><span class="txt_center">2,859</span></td>
+													<td>1인기준, 미화 최소 2,310달러(USD)를 한화(KRW)로 환산 적용</td>
+												</tr>
+												<tr>
+													<td><strong>보증금</strong></td>
+													<td><span class="txt_center">6,300 이상</span></td>
+													<td>현금기준 (부동산담보 또는 보증보험증권 대체 가능)</td>
+												</tr>
+											</tbody>
+										</table></li>
+									<li class="table_bottom">적용환율은 계약체결일의 환율로 산정하기에 실제 지불할
+										가맹비와 계약전 사전심사비(한화기준)은 상기의 가액과 차이가 있습니다.</li>
+								</ul></li>
+							<li><ul>
+									<li class="tableBox"><p class="table_tit">2. 시설 투자비</p>
+										<p class="cap">[단위: 천원, 부가세포함]</p>
+										<table class="table">
+											<thead>
+												<tr style="font-size: 1.2em;">
+													<th scope="col">구분</th>
+													<th scope="col">금액</th>
+													<th scope="col">면적 3.3㎡ 당 금액</th>
+													<th scope="col">비고</th>
+												</tr>
+											</thead>
+											<tbody class="text_left">
+												<tr>
+													<td><strong>필수장비</strong></td>
+													<td><span class="txt_center">92,539</span></td>
+													<td><span class="txt_center">1,532</span></td>
+													<td>수입기기 및 IT장비</td>
+												</tr>
+												<tr>
+													<td><strong>기타 필요 장비</strong></td>
+													<td><span class="txt_center">54,072</span></td>
+													<td><span class="txt_center">895</span></td>
+													<td>주방장비</td>
+												</tr>
+												<tr>
+													<td><strong>인테리어</strong></td>
+													<td><span class="txt_center">147,525</span></td>
+													<td><span class="txt_center">2,442</span></td>
+													<td>매장 내장 공사</td>
+												</tr>
+												<tr>
+													<td><strong>매장설비</strong></td>
+													<td><span class="txt_center">100,208</span></td>
+													<td><span class="txt_center">1,659</span></td>
+													<td>시공 설비</td>
+												</tr>
+												<tr>
+													<td><strong>기타 설비</strong></td>
+													<td><span class="txt_center">19,870</span></td>
+													<td><span class="txt_center">329</span></td>
+													<td>냉난방기</td>
+												</tr>
+												<tr>
+													<td><strong>설계비</strong></td>
+													<td><span class="txt_center">14,300</span></td>
+													<td><span class="txt_center">238</span></td>
+													<td>표준 디자인 반영 시공 도면</td>
+												</tr>
+												<tr>
+													<td><strong>시공관리비</strong></td>
+													<td><span class="txt_center">11,000</span></td>
+													<td><span class="txt_center">183</span></td>
+													<td>디자인 및 일정관리</td>
+												</tr>
+												<tr class="total"
+													style="font-weight: bold; text-align: center; font-size: 1.2em;">
+													<td style="letter-spacing: 4px;">총계</td>
+													<td>439,514</td>
+													<td>7,278</td>
+													<td>60평 기준</td>
+												</tr>
+											</tbody>
+										</table></li>
+									<li class="table_bottom"><p>별도공사 : 전기증설, 외부인입, 기타 추가
+											공사 등</p>
+										<p>상기금액은 예상금액으로 점포상황에 따라 가감 될 수 있습니다.</p>
+										<p>feane은 초기 창업 투자비의 부담을 낮추기 위해 최선을 다하고 있습니다.</p></li>
+								</ul></li>
+						</ul>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<!---->
+	</div>
+</div>
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		
+	</script>
+</th:block>
+</html>

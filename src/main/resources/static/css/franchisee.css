@@ -1,0 +1,52 @@
+@charset "EUC-KR";
+
+.contentsWrap {
+	min-height: 450px;
+	margin: 0 auto;
+}
+
+div {
+	display: block;
+}
+
+a, div, li {
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+    min-height: 100%;
+    color: #000;
+    background: #f2ebe6;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.locationWrap {
+    height: 58px;
+    padding: 10px 0;
+    color: #fff;
+    line-height: 38px;
+    background: #000;
+}
+a, div, li {
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100%;
+    color: #000;
+    background: #f2ebe6;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.eventWrap .contentsBox01 {
+    padding: 50px 0 120px;
+}
+.bg_w {
+    background: #fff;
+}

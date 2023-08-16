@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+
+<head>
+<meta name="_csrf" th:content="${_csrf.token}" />
+<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+</head>
+<th:block layout:fragment="css">
+	<style>
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Header styles */
+.header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main content styles */
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 5px;
+    list-style: none;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.pagination .active a {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Search form styles */
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-form select,
+.search-form input[type="text"] {
+    margin: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Styling for the background and padding */
+.bg-light {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+/* Search container */
+.search-container {
+    display: flex;
+}
+
+.search-group {
+    margin-right: 10px;
+}
+
+.search-label {
+    margin-right: 5px;
+}
+
+.search-option {
+    margin-right: 5px;
+}
+.search-container {
+    display: flex;
+}
+
+.search-label {
+    margin-right: 5px;
+}
+
+.search-option {
+    margin-right: 5px;
+}
+</style>
+</th:block>
+<div layout:fragment="content">
+	<div class="bg-light py-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 mb-0">
+					<a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong
+						class="text-black">상품관리</strong>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="site-section">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-12">
+					<h2 class="h3 mb-3 text-black">상품관리</h2>
+					<form th:action="@{'/admin/menus/'+ ${menus.number}}" method="get"
+						th:object="${menus}">
+						<table class="table table-responsive-md">
+							<thead>
+								<tr>
+									<th scope="col">id</th>
+									<th scope="col">상품명</th>
+									<th scope="col">상태</th>
+									<th scope="col">등록자</th>
+									<th scope="col">등록일</th>
+									<th scope="col">삭제</th>
+
+								</tr>
+							</thead>
+							<tbody>
+							<tbody style="color: black">
+								<!-- 조회된 데이터를 출력한다. -->
+								<tr th:each="menu, status: ${menus.getContent()}">
+									<th th:text="${menu.id}" scope="row"></th>
+									<td><a th:href="'/admin/menu/'+ ${menu.id}"
+										th:text="${menu.menuNm}"></a></td>
+									<td th:text="${menu.menuSellStatus}"></td>
+									<td th:text="${menu.createdBy}"></td>
+									<td th:text="${menu.regTime}"></td>
+									<td>
+										<button type="button" class="btn btn-danger"
+											th:value="${menu.id}" onclick="deleteMenu(this.value)">Delete</button>
+									</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+						<!--페이징 버튼  -->
+						<!-- start = (현재페이지 번호/보여줄 페이지수) +1 ,페이지 시작번호-->
+						<!-- end = start+(현재페이지 번호/보여줄 페이지수 -1 ),페이지 번호  -->
+						<!-- 끝번호가 전체 페이지보다 자긍면 그냥 끝번호를 쓴다. -->
+						<nav
+							th:with="start=${(menus.number/maxPage)*maxPage + 1}
+			,end=(${(menus.totalPages == 0) ? 1 : (start + (maxPage - 1) < menus.totalPages ? start + (maxPage - 1) : menus.totalPages)})"
+							aria-label="Page navigation example">
+							<ul class="pagination d-flex justify-content-center"
+								style="margin: 13px">
+								<li class="page-item" th:classappend="${menus.first}?'disabled'">
+									<a class="page-link"
+									th:onclick="'javascript:page(' + ${menus.number - 1} +')'">이전</a>
+								</li>
+								<li class="page-item"
+									th:each="page: ${#numbers.sequence(start, end)}"
+									th:classappend="${menus.number eq page-1}?'active':''"><a
+									class="page-link" th:inline="text"
+									th:onclick="'javascript:page(' + ${page - 1} +')'">[[${page}]]</a>
+								</li>
+								<li class="page-item" th:classappend="${menus.last}?'disabled'">
+									<a class="page-link"
+									th:onclick="'javascript:page(' + ${menus.number + 1} +')'">다음</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="row" th:object="${menuSearchDto}" style="height: 40px">
+							<div class="col-lg-2"></div>
+							<div class="col-lg-5" style="display: flex;">
+								<!-- 상품 등록일 -->
+							 <select
+									id="searchDateType" name="searchDateType" class="form-control" style="margin-right: 10px">
+									<option value="all">전체기간</option>
+									<option value="1d">1일</option>
+									<option value="1w">1주</option>
+									<option value="1m">1개월</option>
+									<option value="6m">6개월</option>
+								</select>
+								<!-- 상품판매 상태 -->
+								 <select
+									id="searchSellStatus" name="searchSellStatus"
+									class="form-control" style="margin-right: 10px">
+									<option value="">판매상태(전체)</option>
+									<option value="SELL">판매</option>
+									<option value="SOLD_OUT">품절</option>
+								</select>
+								<!-- 상품명, 등록자 선택 -->
+							 <select id="searchBy"
+									name="searchBy" class="form-control">
+									<option value="menuNm">상품명</option>
+									<option value="createdBy">등록자</option>
+								</select>
+							</div>
+							<div class="col-lg-3">
+								<div style="display: flex;">
+									<input type="text" class="form-control" placeholder="검색어 입력"
+										th:field="*{searchQuery}">
+									<button id="searchBtn" type="submit"
+										class="btn btn-primary mb-3">검색</button>
+								</div>
+							</div>
+							<div class="col-lg-2"></div>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<th:block layout:fragment="script">
+	
+	<script th:inline="javascript">
+		$(document).ready(function() {
+			$(".search-option").click(function() {
+				var name = $(this).attr("name");
+				var value = $(this).val();
+				console.log("Name: " + name + ", Value: " + value);
+
+				// 여기에서 선택한 값을 서버로 전송하거나 다른 작업을 수행할 수 있습니다.
+			});
+		});
+		$(document).ready(function() {
+			$("#searchBtn").on("click", function(e) {
+				e.preventDefault();//submit이 되는걸 막음
+				page(0);
+			});
+		});
+
+		var selectBoxChange = function(value) {
+			console.log("값변경테스트 :" + value);
+			$(".form-control").val(value);
+		}
+		function deleteMenu(menuId) {
+			const deleteConf = confirm("삭제하시겠습니까?");
+
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+
+			// Request URL for deleting the menu
+			var url = "/admin/menu/" + menuId + "/delete";
+
+			$.ajax({
+				url : url,
+				type : "DELETE",
+				contentType : "application/json",
+				beforeSend : function(xhr) {
+					// Set the CSRF token in the request header
+					xhr.setRequestHeader(header, token);
+				},
+				dataType : "json",
+				cache : false,
+				success : function(result, status) {
+					// Refresh the page after successful deletion
+					location.reload();
+				},
+				error : function(jqXHR, status, error) {
+					if (jqXHR.status == '401') {
+						alert('Please log in before performing this action.');
+						location.href = '/login'; // Change this URL to the login page URL.
+					} else {
+						alert(jqXHR.responseText);
+					}
+				}
+			});
+		}
+		//검색버튼(페이징)을 눌렀을때 검색어와 selectbox를 get방식으로 주소 이동 시켜준다.
+		function page(page) {
+			var searchDateType = $("#searchDateType").val();
+			var searchSellStatus = $("#searchSellStatus").val();
+			var searchBy = $("#searchBy").val();
+			var searchQuery = $("#searchQuery").val();
+
+			//주소이동
+			location.href = "/admin/menus/" + page + "?searchDateType="
+					+ searchDateType + "&searchSellStatus=" + searchSellStatus
+					+ "&searchBy=" + searchBy + "&searchQuery=" + searchQuery;
+		}
+	</script>
+</th:block>
+</html>
