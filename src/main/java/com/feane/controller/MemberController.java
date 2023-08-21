@@ -134,4 +134,7 @@ public class MemberController {
 		return "member/member";
 
 	}
+	
+	
+	
 }
