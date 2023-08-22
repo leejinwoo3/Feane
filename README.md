@@ -13,7 +13,7 @@
 
 ### 개발 스텍
 - 언어 : <img src="https://img.shields.io/badge/JAVA 17-blue?style=flat&logo=Java&logoColor=white"/>,<img src="https://img.shields.io/badge/HTML-orange?style=flat&logo=html5&logoColor=white"/>,
-- <img src="https://img.shields.io/badge/CSS-#1572B6?style=flat&logo=CSS3&logoColor=white"/> 
+- <img src="https://img.shields.io/badge/CSS-#1572B6?style=flat&logo=CSS&logoColor=white"/> 
 - 프레임워크 : Spring Boot, Spring MVC, Spring JPA
 - 데이터베이스 : MySQL
 - 보안 : Spring Security
