@@ -13,9 +13,9 @@
 
 ### 개발 스텍
 - 언어 : <img src="https://img.shields.io/badge/JAVA 17-blue?style=flat&logo=Java&logoColor=white"/>,<img src="https://img.shields.io/badge/HTML-orange?style=flat&logo=html5&logoColor=white"/>,<img src="https://img.shields.io/badge/CSS-blue?style=flat&logo=CSS&logoColor=white"/> ,<img src="https://img.shields.io/badge/JavaScript-yellow?style=flat&logo=Javascript&logoColor=white"/> ,<img src="https://img.shields.io/badge/Bootstrap-purple?style=flat&logo=Bootstrap&logoColor=white"/>
-- 프레임워크 : <img src="https://img.shields.io/badge/Spring Boot-green?style=flat&logo=springboot&logoColor=white"/>, <img src="https://img.shields.io/badge/Spring MVC-green?style=flat&logo=spring&logoColor=white"/>, <img src="https://img.shields.io/badge/Spring JPA-green?style=flat&logo=spring&logoColor=white"/>
-- 데이터베이스 : <img src="https://img.shields.io/badge/MySQL-indigo?style=flat&logo=mysql&logoColor=white"/>
-- 보안 : <img src="https://img.shields.io/badge/Spring Security-green?style=flat&logo=springsecurity&logoColor=white"/>
+- 프레임워크 : <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=springboot&logoColor=white"/>, <img src="https://img.shields.io/badge/Spring MVC-6DB33F?style=flat&logo=spring&logoColor=white"/>, <img src="https://img.shields.io/badge/Spring JPA-green?style=flat&logo=spring&logoColor=white"/>
+- 데이터베이스 : <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white"/>
+- 보안 : <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=flat&logo=springsecurity&logoColor=white"/>
 - 빌드 : <img src="https://img.shields.io/badge/Maven-light purple?style=flat&logo=maven&logoColor=white"/>
 - 도구 : <img src="https://img.shields.io/badge/EclipseIDE-2C2255?style=flat&logo=eclipseide&logoColor=white"/>
 ### ERD
