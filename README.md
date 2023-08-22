@@ -1,4 +1,3 @@
-# spring-project
 # Feane
 ## 프로젝트 소개
 스프링 부트 + JSP를 이용한 음식주문 사이트
