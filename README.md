@@ -23,7 +23,7 @@
 <img width="30%" src="./images/image2.png"/>
 
 ### JPA
-``
+<pre><code>
  public interface CartMenuRepository extends JpaRepository<CartMenu, Long> {
 	CartMenu findByMenuAndCart(Menu menu, Cart cart);
 
@@ -33,7 +33,7 @@
 	List<CartDetailDto> findCartDetailDtoList(@Param("cartId") Long cartId);
 
 } 
-``
+</code></pre>
 - `@Query`: JPQL 쿼리를 사용합니다. 해당 메소드는 CartDetailDto특정 DTO를 사용하여 장바구니 정보를 상세하게 조회합니다.
 - `CartMenu findByMenuAndCart(Menu menu, Cart cart)`: 카트에 담겨있는 메뉴와 카트를 기반으로 CartMenu분리를 조회하는 방법입니다. 생성된 메서드 이름은 Spring Data JPA에서 생성되어 해당 조건에 맞는 데이터를 조회하는 쿼리를 자동으로 생성합니다.
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=leejinwoo3&show_icons=true&theme=radical)
