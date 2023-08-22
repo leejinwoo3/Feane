@@ -2,6 +2,7 @@
 # Feane
 ## 프로젝트 소개
 스프링 부트 + JSP를 이용한 음식주문 사이트
+![Fast-Food 레스토랑](https://example.com/images/logo.png)
 
 ## 개발 기간 (Table of Contents)
 * 23.07.17 - 23.08.16일
@@ -25,13 +26,14 @@
 - 리뷰: 고객 리뷰 관리 및 저장 및 조회
 
 ## 프로젝트 설정
-1.환경설정
-- Java Development Kit (JDK) 설치
-- Maven 설치
+1. **환경 설정**
+   - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) 설치
+   - [Maven](https://maven.apache.org/) 설치
 
- 2.데이터베이스 설정
-- MySQL 또는 PostgreSQL 데이터베이스 생성 및 설정
-- application.properties파일에서 데이터베이스 연결 정보 설정
+
+2. **데이터베이스 설정**
+   - MySQL 데이터베이스 생성 및 설정
+   - `src/main/resources/application.properties` 파일에서 데이터베이스 연결 정보 설정
   
 3.소스 코드 다운로드<br>
  - git clone https://github.com/your-username/fast-food-restaurant-backend.git
