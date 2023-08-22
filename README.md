@@ -18,7 +18,7 @@
 - SECURITY : <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=flat&logo=springsecurity&logoColor=white"/>
 - BULID : <img src="https://img.shields.io/badge/Maven-light purple?style=flat&logo=maven&logoColor=white"/>
 - TOOL : <img src="https://img.shields.io/badge/EclipseIDE-2C2255?style=flat&logo=eclipseide&logoColor=white"/>
-- ORM :<img src="https://img.shields.io/badge/Mybatis-4285F4?style=flat&logo=mybatis&logoColor=white"/>
+- ORM : <img src="https://img.shields.io/badge/Mybatis-4285F4?style=flat&logo=mybatis&logoColor=white"/>
 ### ERD
 <img width="30%" src="./images/image.png"/>
 
