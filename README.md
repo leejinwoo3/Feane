@@ -12,13 +12,11 @@
          고객의 소리(CRUD),가맹점문의,메뉴 관리,메뉴수정(CRUD)
 
 ### 개발 스텍
--**자바**<br>
--**스프링 부트**<br>
--**스프링 MVC**<br>
--**스프링 데이터 JPA**<br>
--**스프링 시큐리티**<br>
--**MySQL**<br>
--**Maven**<br>
+- 언어 : 자바
+- 프레임워크 : Spring Boot, Spring MVC
+- 데이터베이스 : MySQL,
+- 보안 : spring securitie
+- 제작 도구 : Maven
 
 ## 주요기능 
 - 메뉴 관리: 메뉴 추가, 수정, 삭제 및 조회 기능
@@ -26,9 +24,15 @@
 - 사용자 관리: 고객 및 관리자 계정 관리
 - 리뷰: 고객 리뷰 관리 및 저장 및 조회
 
-
-프로젝트를 로컬 환경에 설치하고 실행하는 방법에 대한 안내를 작성합니다.
-
-1. 저장소를 클론합니다.
-   ```sh
-   git clone https://github.com/leejinwoo3/spring-project.git
+## 프로젝트 설정
+1.환경설정
+- Java Development Kit (JDK) 설치
+- Maven 설치
+2.데이터베이스 설정
+- MySQL 또는 PostgreSQL 데이터베이스 생성 및 설정
+- application.properties파일에서 데이터베이스 연결 정보 설정
+3.소스 코드 다운로드
+  git clone https://github.com/your-username/fast-food-restaurant-backend.git
+4.실행
+  cd fast-food-restaurant-backend
+mvn spring-boot:run
