@@ -13,7 +13,7 @@
 ### 개발 스텍
 - 언어 : Java 17
 - 프레임워크 : Spring Boot, Spring MVC, Spring JPA
-- 데이터베이스 : MySQL,
+- 데이터베이스 : MySQL
 - 보안 : spring security
 - 빌드 : Maven
 ### ERD
