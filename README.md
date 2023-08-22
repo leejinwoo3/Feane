@@ -22,7 +22,7 @@
 
 ##
 ### ERD           ,                             USECASE
-<img width="80%" src="./images/image.png"/> | <img width="100%" src="./images/image2.png"/>
+<img width="100%" src="./images/image.png"/> | <img width="120%" src="./images/image2.png"/>
 ---|---|
 
 
