@@ -16,7 +16,7 @@
 - 프레임워크 : <img src="https://img.shields.io/badge/Spring Boot-green?style=flat&logo=springboot&logoColor=white"/>, <img src="https://img.shields.io/badge/Spring MVC-green?style=flat&logo=spring&logoColor=white"/>, <img src="https://img.shields.io/badge/Spring JPA-green?style=flat&logo=spring&logoColor=white"/>
 - 데이터베이스 : <img src="https://img.shields.io/badge/MySQL-indigo?style=flat&logo=mysql&logoColor=white"/>
 - 보안 : <img src="https://img.shields.io/badge/Spring Security-green?style=flat&logo=springsecurity&logoColor=white"/>
-- 빌드 : Maven
+- 빌드 : <img src="https://img.shields.io/badge/Maven-light purple?style=flat&logo=maven&logoColor=white"/>
 ### ERD
 <img width="30%" src="./images/image.png"/>
 
