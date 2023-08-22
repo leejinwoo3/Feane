@@ -21,7 +21,7 @@
 - ORM : <img src="https://img.shields.io/badge/Mybatis-4285F4?style=flat&logo=mybatis&logoColor=white"/>
 
 ##
-### :computer: ERD           ,                             USECASE
+### :computer:ERD           ,                             USECASE
 <img width="100%" src="./images/image.png"/> | <img width="120%" src="./images/image2.png"/>
 ---|---|
 
