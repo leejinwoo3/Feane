@@ -59,7 +59,7 @@ public class SecurityConfig {
 	}
 
 }
-### MVC
+### Security
 </code></pre>
 - `@EnableWebSecurity` : Spring Security를 ​​활성화하는 어노테이션입니다.
 - `SecurityFilterChain filterChain(HttpSecurity http)` : SecurityFilterChain을 반환하는 메서드로, Spring Security의 검색 체인을 설정합니다.
