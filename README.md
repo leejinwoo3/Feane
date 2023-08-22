@@ -26,7 +26,7 @@
 
 ------------
 
-## 📣요약
+## 📣사용한 기술들
 ### JPA
 <pre><code>
  public interface CartMenuRepository extends JpaRepository<CartMenu, Long> {
