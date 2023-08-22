@@ -33,9 +33,9 @@
 - MySQL 또는 PostgreSQL 데이터베이스 생성 및 설정
 - application.properties파일에서 데이터베이스 연결 정보 설정
   
-3.소스 코드 다운로드
+3.소스 코드 다운로드<br>
   git clone https://github.com/your-username/fast-food-restaurant-backend.git
 
-4.실행
+4.실행<br>
   cd fast-food-restaurant-backend
 mvn spring-boot:run
