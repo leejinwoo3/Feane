@@ -15,7 +15,10 @@
 - **Framework** : springboot
 - **Database** : Mysql DB
 - **ORM** : Mybatis
-- `JavaSE-17`
+- **IDE** : STS 4.11.0.RELEASE
+- `Java 11.0.17`
+- `JDK 17`
+  
 
 
 프로젝트를 로컬 환경에 설치하고 실행하는 방법에 대한 안내를 작성합니다.
