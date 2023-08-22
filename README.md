@@ -20,4 +20,4 @@
 - 빌드 : Maven
 ### ERD
 <img width="80%" src="./images/image.png"/>
-![image](https://github.com/leejinwoo3/Feane/assets/128760115/bb36b16a-b4fa-48d7-a310-e06186ac2a23)
+
