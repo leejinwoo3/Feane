@@ -21,3 +21,4 @@
 ### ERD
 <img width="80%" src="./images/image.png"/>
 
+32
