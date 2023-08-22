@@ -44,7 +44,7 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		// 로그인에 대한 설정
-		http.authorizeHttpRequests(authorize->authorize//페이지 접근에 관한
+		http.authorizeHttpRequests(authorize->authorize//1.페이지 접근에 관한
 				//모든 사용자가 로그인(인증) 없이 접근할수 있도록 설정
 				.requestMatchers("/css/**","/js/**","/img/**","/images/**","/fonts/**").permitAll()
 				.requestMatchers("/","/members/**","/menu/**", "/franchisee/**","/member/**","/order/**","/cart/","/about/").permitAll()
@@ -80,8 +80,8 @@ public class SecurityConfig {
 	}
 }
 </code></pre>
-
-
+- `SecurityConfig는 @EnableWebSecuritySpring Security를 ​​통해 어노테이션을 활성화하며, WebSecurityConfigurerAdapter커뮤니티를 통해 시큐리티 설정을 구성합니다`
+- `UserDetailsService사용자 정보를 받아오는 서비스를 설정합니다.`
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=leejinwoo3&show_icons=true&theme=radical)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=leejinwoo3&layout=compact)](https://github.com/delay-100/github-readme-stats)
