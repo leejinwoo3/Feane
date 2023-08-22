@@ -28,14 +28,14 @@
 1.환경설정
 - Java Development Kit (JDK) 설치
 - Maven 설치
-  <br>
-2.데이터베이스 설정
+
+ 2.데이터베이스 설정
 - MySQL 또는 PostgreSQL 데이터베이스 생성 및 설정
 - application.properties파일에서 데이터베이스 연결 정보 설정
-  <br>
+  
 3.소스 코드 다운로드
   git clone https://github.com/your-username/fast-food-restaurant-backend.git
-  <br>
+
 4.실행
   cd fast-food-restaurant-backend
 mvn spring-boot:run
