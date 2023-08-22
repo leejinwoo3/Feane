@@ -23,7 +23,7 @@
 <img width="30%" src="./images/image2.png"/>
 
 ### JPA
-public interface CartMenuRepository extends JpaRepository<CartMenu, Long> {
+- public interface CartMenuRepository extends JpaRepository<CartMenu, Long> {
 	CartMenu findByMenuAndCart(Menu menu, Cart cart);
 
 	@Query("select new com.feane.dto.CartDetailDto(ci.id, i.menuNm, i.price, ci.count, im.imgUrl, ci.menu.id menuId) "
