@@ -34,8 +34,8 @@
 - application.properties파일에서 데이터베이스 연결 정보 설정
   
 3.소스 코드 다운로드<br>
-  git clone https://github.com/your-username/fast-food-restaurant-backend.git
+ - git clone https://github.com/your-username/fast-food-restaurant-backend.git
 
 4.실행<br>
-  cd fast-food-restaurant-backend
+ - cd fast-food-restaurant-backend
 mvn spring-boot:run
