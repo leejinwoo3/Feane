@@ -19,6 +19,5 @@
 - 보안 : spring security
 - 빌드 : Maven
 ### ERD
-![image](https://github.com/leejinwoo3/Feane/assets/128760115/39b14e92-9f11-4785-9c4d-ebb7f2f0bbd9)
-
-
+<img width="80%" src="./images/image.png"/>
+![image](https://github.com/leejinwoo3/Feane/assets/128760115/bb36b16a-b4fa-48d7-a310-e06186ac2a23)
