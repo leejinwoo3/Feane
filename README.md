@@ -19,6 +19,5 @@
 - 보안 : spring security
 - 빌드 : Maven
 ### ERD
-<img width="80%" src="./images/image.png"/>
+<img width="50%" src="./images/image.png"/>
 
-32
