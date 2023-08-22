@@ -12,12 +12,13 @@
          고객의 소리(CRUD),가맹점문의,메뉴 관리,메뉴수정(CRUD)
 
 ### 개발 환경
-- **Framework** : springboot
-- **Database** : Mysql DB
-- **ORM** : Mybatis
-- **IDE** : STS 4.11.0.RELEASE
-- `Java 11.0.17`
-- `JDK 17`
+- 자바
+-스프링 부트
+-스프링 MVC
+-스프링 데이터 JPA
+-스프링 시큐리티
+-MySQL(또는 다른 RDBMS)
+-Maven(또는 Gradle)
   
 
 
