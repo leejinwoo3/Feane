@@ -53,35 +53,17 @@ public class SecurityConfig {
 				.requestMatchers("/admin/**").hasRole("ADMIN")
 				.anyRequest().authenticated()//그외 페이지는 모두 로그인 (인증을 받아야한다.)
 				)
-		.formLogin(formLogin -> formLogin//2.로그인에 관련된 설정
-				.loginPage("/members/login")//로그인페이지 URL설정
-				.defaultSuccessUrl("/")//로그인 성공시 이동할 페이지
-				.usernameParameter("email")//로그인시 id로 사용할 파라메터 이름
-				.failureUrl("/members/login/error")//로그인 실패시 이동할 url
-				//.permitAll()
-				)
-		.logout(logout->logout//3.로그아웃에 관련된 설정
-				.logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-				.logoutSuccessUrl("/")//로그아웃 성공시 이동할 URL
-				//.permitAll()
-				)	//4.인증 되지 않은 사용자가 리소스에 접근했을때 설정(ex.로그인 안했는데 cart페이지에 접근..)
-		.exceptionHandling(handling-> handling
-				.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
-				)
-		.rememberMe(Customizer.withDefaults());
 	
-		return http.build();
-		
+		return http.build();		
 	}
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
 }
 </code></pre>
-- `SecurityConfig는 @EnableWebSecuritySpring Security를 ​​통해 어노테이션을 활성화하며, WebSecurityConfigurerAdapter커뮤니티를 통해 시큐리티 설정을 구성합니다`
-- `UserDetailsService사용자 정보를 받아오는 서비스를 설정합니다.`
+- `@EnableWebSecurity` : Spring Security를 ​​활성화하는 어노테이션입니다.
+- `SecurityFilterChain filterChain(HttpSecurity http)` : SecurityFilterChain을 반환하는 메서드로, Spring Security의 검색 체인을 설정합니다.
+- `http.authorizeRequests()` : 요청에 대한 권한을 설정합니다.
+- `requestMatchers()로 특정 요청을 참여시키고, permitAll()사용하여 외부 접근 가능하도록 설정합니다.`
+- `anyRequest().authenticated()`: 그 외의 모든 요청은 인증된 사용자만 접근 가능하도록 설정됩니다.
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=leejinwoo3&show_icons=true&theme=radical)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=leejinwoo3&layout=compact)](https://github.com/delay-100/github-readme-stats)
