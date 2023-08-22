@@ -21,8 +21,8 @@
 
 ### ERD
 <p align="center">
-  <img src="이미지URL">
+  <img src="(https://github.com/leejinwoo3/Feane/assets/128760115/a60d74b9-38c2-49c8-a877-213d5c5e96c3">
 </p>
-![image](https://github.com/leejinwoo3/Feane/assets/128760115/a60d74b9-38c2-49c8-a877-213d5c5e96c3)
+
 
 
