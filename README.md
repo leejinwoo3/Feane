@@ -36,7 +36,7 @@
 </code></pre>
 - `@Query`: JPQL 쿼리를 사용합니다. 해당 메소드는 CartDetailDto특정 DTO를 사용하여 장바구니 정보를 상세하게 조회합니다.
 - `CartMenu findByMenuAndCart(Menu menu, Cart cart)`: 카트에 담겨있는 메뉴와 카트를 기반으로 CartMenu분리를 조회하는 방법입니다. 생성된 메서드 이름은 Spring Data JPA에서 생성되어 해당 조건에 맞는 데이터를 조회하는 쿼리를 자동으로 생성합니다.
- 
+------------ 
 ### Security
 <pre><code>
 @Configuration // Bean 객체를 싱글톤으로 객체를 관리해준다.
@@ -59,6 +59,7 @@ public class SecurityConfig {
 	}
 
 }
+------------	
 ### Security
 </code></pre>
 - `@EnableWebSecurity` : Spring Security를 ​​활성화하는 어노테이션입니다.
@@ -67,7 +68,7 @@ public class SecurityConfig {
 - `requestMatchers()`로 특정 요청을 참여시키고, permitAll()사용하여 외부 접근 가능하도록 설정합니다.
 - `anyRequest().authenticated()`: 그 외의 모든 요청은 인증된 사용자만 접근 가능하도록 설정됩니다.
 -`http.build()` : 설정한 내용을 http작성하여 SecurityFilterChain생성합니다.
-
+------------
 ### Spring MVC
 <pre><code>
 @PostMapping(value = "/cart")
