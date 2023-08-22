@@ -11,148 +11,156 @@
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
-			body {
-			font-family: Arial, sans-serif;
-			background-color: #f7f7f7;
-			color: #333;
-			margin: 0;
-			padding: 0;
-		}
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f7f7f7;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
 
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 20px;
-		}
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
 
-		h2 {
-			font-size: 24px;
-			font-weight: bold;
-			margin-bottom: 20px;
-		}
+h2 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
 
-		.table {
-			width: 100%;
-			margin-bottom: 20px;
-			background-color: #fff;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			border-radius: 5px;
-			font-size: 16px;
-		}
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	font-size: 16px;
+}
 
-		th {
-			background-color: #f8f9fa;
-			padding: 10px;
-			text-align: center;
-			border: 1px solid #dee2e6;
-		}
+th {
+	background-color: #f8f9fa;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #dee2e6;
+}
 
-		td {
-			padding: 10px;
-			text-align: center;
-			border: 1px solid #dee2e6;
-		}
+td {
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #dee2e6;
+}
 
-		.repImgDiv {
-			margin-right: 15px;
-			margin-left: 15px;
-		}
+.repImgDiv {
+	margin-right: 15px;
+	margin-left: 15px;
+}
 
-		.repImg {
-			height: 100px;
-			width: 100px;
-			border-radius: 5px;
-		}
+.repImg {
+	height: 100px;
+	width: 100px;
+	border-radius: 5px;
+}
 
-		.fs24 {
-			font-size: 24px;
-		}
+.fs24 {
+	font-size: 24px;
+}
 
-		.fs18 {
-			font-size: 18px;
-		}
+.fs18 {
+	font-size: 18px;
+}
 
-		.font-weight-bold {
-			font-weight: bold;
-		}
+.font-weight-bold {
+	font-weight: bold;
+}
 
-		.text-center {
-			text-align: center;
-		}
+.text-center {
+	text-align: center;
+}
 
-		.text-danger {
-			color: #dc3545;
-		}
+.text-danger {
+	color: #dc3545;
+}
 
-		.btn-primary {
-			background-color: #007bff;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 10px 20px;
-			cursor: pointer;
-		}
+.btn-primary {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+}
 
-		.btn-primary:hover {
-			background-color: #0056b3;
-		}
+.btn-primary:hover {
+	background-color: #0056b3;
+}
 
-		/* Additional Styles */
-		.bg-light {
-			background-color: #f8f9fa;
-		}
+/* Additional Styles */
+.bg-light {
+	background-color: #f8f9fa;
+}
 
-		.mb-0 {
-			margin-bottom: 0;
-		}
+.mb-0 {
+	margin-bottom: 0;
+}
 
-		.mb-2 {
-			margin-bottom: 2px;
-		}
+.mb-2 {
+	margin-bottom: 2px;
+}
 
-		.mt-3 {
-			margin-top: 3px;
-		}
+.mt-3 {
+	margin-top: 3px;
+}
 
-		.align-middle {
-			vertical-align: middle;
-		}
+.align-middle {
+	vertical-align: middle;
+}
 
-		.align-self-center {
-			align-self: center;
-		}
+.align-self-center {
+	align-self: center;
+}
 
-		.input-group {
-			display: flex;
-			align-items: center;
-		}
+.input-group {
+	display: flex;
+	align-items: center;
+}
 
-		.close {
-			color: #000;
-			opacity: 0.5;
-			font-size: 20px;
-			font-weight: bold;
-			line-height: 1;
-		}
+.close {
+	color: #000;
+	opacity: 0.5;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1;
+}
 
-		.close:hover {
-			color: #dc3545;
-			opacity: 1;
-		}
+.close:hover {
+	color: #dc3545;
+	opacity: 1;
+}
 
-		.text-white {
-			color: #fff;
-		}
+.text-white {
+	color: #fff;
+}
 </style>
 
 </th:block>
 
 
-<div layout:fragment="content" class="content-mg">
+<div layout:fragment="content" class="content-mg"
+	>
+	<div class="container" >
+		<div class="row">
+			<div class="col-md-12 mb-0">
+				<a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong
+					class="text-black">장바구니 목록</strong>
+			</div>
+		</div>
+	</div>
 
-	<h2 class="mb-4">장바구니 목록</h2>
-
-	<div>
+	<div style="background-color: white">
+	<h2 class="mb-4" style="background-color: white">장바구니 목록</h2>
 
 		<table class="table">
 			<colgroup>
@@ -327,21 +335,21 @@
 		function orders() {
 			var token = $("meta[name='_csrf']").attr("content");
 			var header = $("meta[name='_csrf_header']").attr("content");
-			
-			var url = "/cart/orders"  ;
 
-            var dataList = new Array();
-            var paramData = new Object();
+			var url = "/cart/orders";
 
-            $("input[name=cartChkBox]:checked").each(function() {
-                var cartMenuId = $(this).val();
-                var data = new Object();
-                data["cartMenuId"] = cartMenuId;
-                dataList.push(data);
-            });
-            paramData['cartDtoList'] = dataList;
+			var dataList = new Array();
+			var paramData = new Object();
 
-            var param = JSON.stringify(paramData);
+			$("input[name=cartChkBox]:checked").each(function() {
+				var cartMenuId = $(this).val();
+				var data = new Object();
+				data["cartMenuId"] = cartMenuId;
+				dataList.push(data);
+			});
+			paramData['cartDtoList'] = dataList;
+
+			var param = JSON.stringify(paramData);
 
 			//★전달하기 전에 데이터를 반드시 JSON -> 문자열로 만들어야 한다.
 
@@ -359,7 +367,7 @@
 				dataType : "json",
 				cache : false,
 				success : function(result, status) {
-					alert("주문이 완료 되었습니다." );
+					alert("주문이 완료 되었습니다.");
 					//location.href = '/';
 				},
 				error : function(jqXHR, status, error) {
@@ -372,7 +380,6 @@
 				}
 			});
 		}
-		
 	</script>
 
 

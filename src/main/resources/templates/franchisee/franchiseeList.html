@@ -11,7 +11,9 @@
       list-style: none;
       font-family: Arial, sans-serif;
     }
-
+	body{
+	background-color: white;
+	}
     /* Basic styles for the layout */
     .contentsWrap {
       max-width: 1200px;
@@ -22,6 +24,7 @@
     h3 {
       font-size: 24px;
       margin-bottom: 20px;
+      color:black;
     }
 
     .tab01 ul {
@@ -133,14 +136,23 @@
 </style>
 </th:block>
 <div layout:fragment="content">
-
+<div class="bg-light py-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 mb-0">
+					<a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong
+						class="text-black">가맹점 모집</strong>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="contentsWrap eventWrap">
 
 		<div class="contentsBox01 bg_w">
 			<div class="web_container">
-				<h3>가맹점 문의</h3>
+			
 					<div class="subtitWrap">
-				<h3>고객센터</h3>
+				
 					<!-- <div class="tab01 m_shadow">
 		
 						<ul>
