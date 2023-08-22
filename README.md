@@ -59,6 +59,7 @@ public class SecurityConfig {
 	}
 
 }
+### MVC
 </code></pre>
 - `@EnableWebSecurity` : Spring Security를 ​​활성화하는 어노테이션입니다.
 - `SecurityFilterChain filterChain(HttpSecurity http)` : SecurityFilterChain을 반환하는 메서드로, Spring Security의 검색 체인을 설정합니다.
@@ -67,6 +68,42 @@ public class SecurityConfig {
 - `anyRequest().authenticated()`: 그 외의 모든 요청은 인증된 사용자만 접근 가능하도록 설정됩니다.
 -`http.build()` : 설정한 내용을 http작성하여 SecurityFilterChain생성합니다.
 
+### Spring MVC
+<pre><code>
+@PostMapping(value = "/cart")
+	public @ResponseBody ResponseEntity order(@RequestBody @Valid CartMenuDto cartMenuDto, BindingResult bindingResult,
+			Principal principal) {
+
+		if (bindingResult.hasErrors()) {
+			StringBuilder sb = new StringBuilder();
+			List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+
+			for (FieldError fieldError : fieldErrors) {
+				sb.append(fieldError.getDefaultMessage());
+			}
+
+			return new ResponseEntity<String>(sb.toString(), HttpStatus.BAD_REQUEST);
+		}
+
+		String email = principal.getName();
+		Long carMenuId;
+
+		try {
+			carMenuId = cartService.addCart(cartMenuDto, email);
+		} catch (Exception e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+
+		return new ResponseEntity<Long>(carMenuId, HttpStatus.OK);
+	}
+</code></pre>
+- `@PostMapping(value = "/cart")`: 해당 URL에 POST 요청이 있으면 이 메서드를 처리합니다.
+- `@RequestBody @Valid CartMenuDto cartMenuDto`: 데이터를 CartMenuDto매핑하며, 주문 생성에 필요한 정보를 갖고 있습니다.
+- `BindingResult bindingResult` : 검증 오류가 발생할 경우 오류 내용을 보관하는 스프링 프레임워크에서 제공하는 객체입니다.
+- `Principal principal` : 현재 로그인한 사용자의 정보를 `getName()`값으로 제공합니다.
+-  `cartService` : 주문 생성에 참여하고 로그인한 사용자의 정보를 얻은 경우 `cartService`를 이용해 주문을 생성합니다.
+-  예외 처리: 소스 생성 백업이 발생한 경우 포함된 보존 상태 코드를 반환합니다
+-  응답 반환: 주문 생성이 성공하면 주문의 `ID`와 `OK`상태를 유지합니다.
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=leejinwoo3&show_icons=true&theme=radical)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=leejinwoo3&layout=compact)](https://github.com/delay-100/github-readme-stats)
 
