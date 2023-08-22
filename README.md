@@ -26,7 +26,7 @@
 
 ------------
 
-## 📣중요부분
+## 📣요약
 ### JPA
 <pre><code>
  public interface CartMenuRepository extends JpaRepository<CartMenu, Long> {
