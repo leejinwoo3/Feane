@@ -25,6 +25,8 @@
 <img width="30%" src="./images/image2.png"/>
 
 ------------
+
+📣중요부분
 ### JPA
 <pre><code>
  public interface CartMenuRepository extends JpaRepository<CartMenu, Long> {
