@@ -13,11 +13,11 @@
          고객의 소리(CRUD),가맹점문의,메뉴 관리,메뉴수정(CRUD)
 
 ### 개발 스텍
-- 언어 : 자바
-- 프레임워크 : Spring Boot, Spring MVC
+- 언어 : Java 17
+- 프레임워크 : Spring Boot, Spring MVC, Spring JPA
 - 데이터베이스 : MySQL,
-- 보안 : spring securitie
-- 제작 도구 : Maven
+- 보안 : spring security
+- 빌드 : Maven
 
 # 주요 기능
 
