@@ -1,4 +1,5 @@
 # Feane
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Wave&fontSize=90" />
 ## 프로젝트 소개
 스프링 부트 + JSP를 이용한 음식주문 사이트
 
