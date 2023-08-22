@@ -21,6 +21,7 @@
 
 ### USECASE
 <img width="30%" src="./images/image2.png"/>
+
 ------------
 ### JPA
 <pre><code>
