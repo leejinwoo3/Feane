@@ -40,6 +40,21 @@
 
 } 
 </code></pre>
+<pre><code>
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.feane.entity.Cart;
+import com.feane.entity.CartMenu;
+
+public interface CartRepository extends JpaRepository<Cart, Long> {
+
+	Cart findByMemberId(Long memberId);
+
+	
+
+}
+</code></pre>
 - `@Query`: JPQL 쿼리를 사용합니다. 해당 메소드는 CartDetailDto특정 DTO를 사용하여 장바구니 정보를 상세하게 조회합니다.
 - `CartMenu findByMenuAndCart(Menu menu, Cart cart)`: 카트에 담겨있는 메뉴와 카트를 기반으로 CartMenu분리를 조회하는 방법입니다. 생성된 메서드 이름은 Spring Data JPA에서 생성되어 해당 조건에 맞는 데이터를 조회하는 쿼리를 자동으로 생성합니다.
 ------------ 
@@ -112,6 +127,9 @@ public class SecurityConfig {
 -  예외 처리: 소스 생성 백업이 발생한 경우 포함된 보존 상태 코드를 반환합니다
 -  응답 반환: 주문 생성이 성공하면 주문의 `ID`와 `OK`상태를 유지합니다.
 ------------
+
+
+
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=leejinwoo3&show_icons=true&theme=radical)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=leejinwoo3&layout=compact)](https://github.com/delay-100/github-readme-stats)
