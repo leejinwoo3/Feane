@@ -1,5 +1,6 @@
 package com.feane.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.util.StringUtils;
@@ -15,7 +16,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Transactional
 public class CustomerImgService {
-	private String customerImgLocation = "C:/feane/customer";
+	@Value("${customerImgLocation}")
+	private String customerImgLocation;
+	/* private String customerImgLocation = "C:/feane/customer"; */
 	private final FileService fileService;
 
 	private final CustomerImgRepository customerImgRepository;
