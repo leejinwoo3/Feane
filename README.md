@@ -51,6 +51,8 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 </code></pre>
 - `@Query`: JPQL 쿼리를 사용합니다. 해당 메소드는 CartDetailDto특정 DTO를 사용하여 장바구니 정보를 상세하게 조회합니다.
 - `CartMenu findByMenuAndCart(Menu menu, Cart cart)`: 카트에 담겨있는 메뉴와 카트를 기반으로 CartMenu분리를 조회하는 방법입니다. 생성된 메서드 이름은 Spring Data JPA에서 생성되어 해당 조건에 맞는 데이터를 조회하는 쿼리를 자동으로 생성합니다.
+- `findByMemberId` : 사용자의 아이디(memberId)를 통해 해당 사용자의 카트 정보를 조회하는 메서드 입니다.
+- `JpaRepository`를 상속받아 데이터베이스와 상호 작용할 수 있는 메서드를 상속받아 데이터 베이스 쿼리를 조작가능합니다.
 ------------ 
 ### Security
 <pre><code>
