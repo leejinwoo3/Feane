@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.feane.constant.MenuSellStatus;
 import com.feane.dto.MenuFormDto;
-import com.myshop.exception.OutOfStockException;
+import com.feane.exception.OutOfStockException;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

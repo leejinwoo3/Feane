@@ -88,9 +88,10 @@
     		<groupId>org.thymeleaf.extras</groupId>
     		<artifactId>thymeleaf-extras-springsecurity6</artifactId>
 		</dependency>
+
 		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>myshop</artifactId>
+			<groupId>com.ezen</groupId>
+			<artifactId>booktving</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

@@ -19,7 +19,6 @@ import com.feane.repository.CartMenuRepository;
 import com.feane.repository.CartRepository;
 import com.feane.repository.MemberRepository;
 import com.feane.repository.MenuRepository;
-import com.myshop.entity.CartItem;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
