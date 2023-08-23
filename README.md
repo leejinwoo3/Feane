@@ -24,8 +24,7 @@
 <img width="100%" src="./images/image.png"/> | <img width="120%" src="./images/image2.png"/>
 ---|---|
 ## 배포
--AWS 
--http://54.180.24.224/ 웹 페이지 
+-AWS : http://54.180.24.224/ 웹 페이지 
 
 ------------
 
