@@ -5,12 +5,16 @@
 		<head>
 <meta name="_csrf" th:content="${_csrf.token}" />
 <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
 </head>
 <th:block layout:fragment="css">
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
 	<style>
+	
 .fieldError {
 	color: #bd2130;
 }
+
 </style>
 </th:block>
 

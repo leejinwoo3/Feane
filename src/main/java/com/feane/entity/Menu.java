@@ -57,8 +57,6 @@ public class Menu extends BaseEntity {
 	@OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<MenuImg> menuimgs = new ArrayList<>();
 
-	
-
 	public void addOrderMenu(OrderMenu orderMenu) {
 		this.orderMenus.add(orderMenu);
 		orderMenu.setMenu(this);// 양방향 참조관계일때는 orderItem 객체에도 order 객체를 세팅한다.

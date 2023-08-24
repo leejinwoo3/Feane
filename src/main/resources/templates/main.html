@@ -3,10 +3,15 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/layout1}">
 <th:block layout:fragment="css">
+	<style>
+body {
+	background-color: white;
 	
+}
+</style>
 </th:block>
 
-<div layout:fragment="content" >
+<div layout:fragment="content">
 	<div class="hero_area">
 		<div class="bg-box">
 			<img src="/images/hero-bg.jpg">
@@ -44,7 +49,8 @@
 	</div>
 
 
-	<section class="food_section layout_padding" style="background-color: white">
+	<section class="food_section layout_padding"
+		style="background-color: white">
 		<div class="container">
 			<div class="heading_container heading_center">
 				<h2>Our Menu</h2>
