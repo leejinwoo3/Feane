@@ -23,7 +23,8 @@
 ### :computer:ERD           ,                             USECASE
 <img width="100%" src="./images/image.png"/> | <img width="120%" src="./images/image2.png"/>
 ---|---|
-
+## :sparkles:AWS 배포
+- 웹페이지 : http://54.180.24.224/ 
 
 ------------
 
