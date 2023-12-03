@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,8 @@ import lombok.RequiredArgsConstructor;
 public class MainController {
 	private final MenuService menuService;
 	private final CustomerService customerService;
+	private final PasswordEncoder passwordEncoder;
+	
 	@GetMapping(value = "/")
 	public String main(MenuSearchDto menuSearchDto, Optional<Integer>page,Model model, CustomerSearchDto customerSearchDto ) {
 		Pageable pageable = PageRequest.of(page.isPresent()? page.get() : 0,6);
@@ -36,4 +39,5 @@ public class MainController {
 		model.addAttribute("maxPage", 6);
 		return "main";
 	}
+	
 }

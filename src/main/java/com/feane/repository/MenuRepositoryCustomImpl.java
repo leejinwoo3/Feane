@@ -44,22 +44,24 @@ public class MenuRepositoryCustomImpl implements MenuRepositoryCustom {
 		return new PageImpl<>(content, pageable, total);
 	}
 
-	@Override
-	public Page<MainMenuDto> getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
-		QMenu menu = QMenu.menu;
-		QMenuImg menuImg = QMenuImg.menuImg;
-		
-		List<MainMenuDto> content = queryFactory
-				.select(new QMainMenuDto(menu.id, menu.menuNm, menu.menuDetail, menuImg.imgUrl, menu.price))
-				.from(menuImg).join(menuImg.menu).where(menuImg.repimgYn.eq("Y"))
-				.where(menuNmLike(menuSearchDto.getSearchQuery())).orderBy(menu.id.desc()).offset(pageable.getOffset())
-				.limit(pageable.getPageSize()).fetch();
-
-		long total = queryFactory.select(Wildcard.count).from(menuImg).join(menuImg.menu)
-				.where(menuImg.repimgYn.eq("Y")).where(menuNmLike(menuSearchDto.getSearchQuery())).fetchOne();
-
-		return new PageImpl<>(content,pageable,total);
-	}
+	/*
+	 * @Override public public List<MainMenuDto> getMainMenuList(MenuSearchDto
+	 * menuSearchDto, Pageable pageable) { QMenu menu = QMenu.menu; QMenuImg menuImg
+	 * = QMenuImg.menuImg;
+	 * 
+	 * List<MainMenuDto> content = queryFactory .select(new QMainMenuDto(menu.id,
+	 * menu.menuNm, menu.menuDetail, menuImg.imgUrl, menu.price))
+	 * .from(menuImg).join(menuImg.menu).where(menuImg.repimgYn.eq("Y"))
+	 * .where(menuNmLike(menuSearchDto.getSearchQuery())).orderBy(menu.id.desc()).
+	 * offset(pageable.getOffset()) .limit(pageable.getPageSize()).fetch();
+	 * 
+	 * long total =
+	 * queryFactory.select(Wildcard.count).from(menuImg).join(menuImg.menu)
+	 * .where(menuImg.repimgYn.eq("Y")).where(menuNmLike(menuSearchDto.
+	 * getSearchQuery())).fetchOne();
+	 * 
+	 * return new PageImpl<>(content,pageable,total); }
+	 */
 	private BooleanExpression menuNmLike(String searchQuery) {
 		return StringUtils.isEmpty(searchQuery) ? null : QMenu.menu.menuNm.like("%" + searchQuery + "%");
 	}
@@ -79,9 +81,11 @@ public class MenuRepositoryCustomImpl implements MenuRepositoryCustom {
 			dateTime = dateTime.minusMonths(6);
 		return QMenu.menu.regTime.after(dateTime);
 	}
+
 	private BooleanExpression searchSellStatusEq(MenuSellStatus searchSellStatus) {
 		return searchSellStatus == null ? null : QMenu.menu.menuSellStatus.eq(searchSellStatus);
 	}
+
 	private BooleanExpression searchByLike(String searchBy, String searchQuery) {
 		if (StringUtils.equals("menuNm", searchBy)) {
 			// 등록자로 검색시
@@ -90,5 +94,17 @@ public class MenuRepositoryCustomImpl implements MenuRepositoryCustom {
 			return QMenu.menu.createdBy.like("%" + searchQuery + "%");
 		}
 		return null;
+	}
+
+	@Override
+	public List<MainMenuDto> getMainMenuList() {
+		QMenu menu = QMenu.menu;
+		QMenuImg menuImg = QMenuImg.menuImg;
+
+		List<MainMenuDto> content = queryFactory.select(
+				new QMainMenuDto(menu.id, menu.menuNm, menu.menuDetail, menuImg.imgUrl, menu.price, menu.category))
+				.from(menuImg).join(menuImg.menu, menu).orderBy(menu.menuNm.asc()).fetch();
+
+		return content;
 	}
 }

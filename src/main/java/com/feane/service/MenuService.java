@@ -8,15 +8,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import org.thymeleaf.util.StringUtils;
 
 import com.feane.dto.MainMenuDto;
 import com.feane.dto.MenuFormDto;
 import com.feane.dto.MenuImgDto;
 import com.feane.dto.MenuSearchDto;
-import com.feane.entity.Member;
+import com.feane.entity.Category;
 import com.feane.entity.Menu;
 import com.feane.entity.MenuImg;
+import com.feane.repository.CategoryRepository;
 import com.feane.repository.MenuImgRepository;
 import com.feane.repository.MenuRepository;
 
@@ -30,10 +30,13 @@ public class MenuService {
 	private final MenuRepository menuRepository;
 	private final MenuImgService menuImgService;
 	private final MenuImgRepository menuImgRepository;
-
+	private final CategoryRepository categoryRepository;
+	
 // 메뉴 테이블 메뉴등록
 	public Long saveMenu(MenuFormDto menuFormDto, List<MultipartFile> menuImgFileList) throws Exception {
-		Menu menu = menuFormDto.createMenu();
+		Category category = categoryRepository.findById(menuFormDto.getCategoryId())
+				   .orElseThrow(EntityNotFoundException::new);
+		Menu menu = menuFormDto.createMenu(category);
 
 		menuRepository.save(menu); // insert(저장)
 		for (int i = 0; i < menuImgFileList.size(); i++) {
@@ -48,7 +51,7 @@ public class MenuService {
 			}
 			System.out.println("a");
 
-			menuImgService.savaMenuImg(menuImg, menuImgFileList.get(i));
+			//menuImgService.savaMenuImg(menuImg, menuImgFileList.get(i));
 			System.out.println("b");
 		}
 
@@ -84,19 +87,33 @@ public class MenuService {
 		}
 		return menu.getId();
 	}
-
+//메뉴 관리
 	@Transactional(readOnly = true)
 	public Page<Menu> getAdminMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
 		Page<Menu> menuPage = menuRepository.getAdminMenuPage(menuSearchDto, pageable);
 
 		return menuPage;
 	}
-
-	@Transactional(readOnly = true)
-	public Page<MainMenuDto> getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
-		Page<MainMenuDto> mainMenuPage = menuRepository.getMainMenuPage(menuSearchDto, pageable);
-		return mainMenuPage;
+	// 카테고리 리스트
+	public List<Category> getCategoryList(){
+		List<Category> categoryList = categoryRepository.findAll();
+		
+		return categoryList;
 	}
+	
+	// 서버 최초 실행 시 카테고리 등록
+	public Category saveCategory(Category category) {
+		Category saveCategory = categoryRepository.save(category);
+		
+		return saveCategory;
+	}
+	/*
+	 * @Transactional(readOnly = true) public Page<MainMenuDto>
+	 * getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
+	 * Page<MainMenuDto> mainMenuPage =
+	 * menuRepository.getMainMenuPage(menuSearchDto, pageable); return mainMenuPage;
+	 * }
+	 */
 
 	public void deleteMenu(Long menuId) {
 		Menu menu = menuRepository.findById(menuId).orElseThrow(EntityNotFoundException::new);

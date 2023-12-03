@@ -6,6 +6,7 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 
 import com.feane.constant.MenuSellStatus;
+import com.feane.entity.Category;
 import com.feane.entity.Menu;
 
 import jakarta.validation.constraints.NotBlank;
@@ -29,7 +30,10 @@ public class MenuFormDto {
 	
 	@NotNull(message = "상품상세설명은 필수 입력입니다.")
 	private String menuDetail;
-	
+	@NotNull(message = "카테고리는 필수 선택입니다.")
+	private Long categoryId;
+
+	private Category category;
 	
 	private MenuSellStatus menuSellStatus;
 
@@ -39,7 +43,8 @@ public class MenuFormDto {
 
 	private static ModelMapper modelMapper = new ModelMapper();
 
-	public Menu createMenu() {
+	public Menu createMenu(Category category) {
+		this.category = category;
 		return modelMapper.map(this, Menu.class);
 	}
 	

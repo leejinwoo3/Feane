@@ -58,17 +58,19 @@ body {
 
 			<ul class="filters_menu">
 				<li class="active" data-filter="*">All</li>
-				<li data-filter=".burger">Burger</li>
-				<li data-filter=".pizza">Pizza</li>
-				<li data-filter=".pasta">Pasta</li>
-				<li data-filter=".fries">Fries</li>
+				<li data-filter=".category1">Burger</li>
+				<li data-filter=".category2">Pizza</li>
+				<li data-filter=".category3">Pasta</li>
+				<li data-filter=".category4">Fries</li>
 			</ul>
 
 
 			<div class="filters-content">
 				<div class="row grid">
-					<div class="col-sm-6 col-lg-4 all burger"
-						th:each="menu, status : ${menus.getContent()}">
+					<th:block th:each="menu, status:${menus}">
+						<div class="col-sm-4 col-lg-4 all" th:classappend="category + ${menu.category.id}">
+					<!--<div class="col-sm-6 col-lg-4 all burger"
+						th:each="menu, status : ${menus.getContent()}">-->
 						<div class="box">
 							<div>
 								<a class="img-box" th:href="'/menu/' + ${menu.id}"> <img

@@ -1,6 +1,5 @@
 package com.feane.service;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.thymeleaf.util.StringUtils;
@@ -17,9 +16,10 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 public class MenuImgService {
 	
-	@Value("${menuImgLocation}")
-	private String menuImgLocation;
-	/* private String menuImgLocation = "C:/feane/menu"; */
+	/*
+	 * @Value("${menuImgLocation}") private String menuImgLocation;
+	 */
+	 private String menuImgLocation = "C:/feane/menu"; 
 	private final FileService fileService;
 
 	private final MenuImgRepository menuImgRepository;

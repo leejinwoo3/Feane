@@ -16,7 +16,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -47,8 +49,11 @@ public class Menu extends BaseEntity {
 	@Column(nullable = false, columnDefinition = "longtext")
 	private String menuDetail;// 상품상세 설명 ->item_detail
 
-	@OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY) // 연관관계의 주인
-																											// // 지정)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category_id")
+	private Category category;
+	
+	@OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY) // 연관관계의 주인																									// // 지정)
 	private List<OrderMenu> orderMenus = new ArrayList<>();
 
 	@OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
@@ -68,6 +73,7 @@ public class Menu extends BaseEntity {
 
 	public void updateMenu(MenuFormDto menuFormDto) {
 		this.menuNm = menuFormDto.getMenuNm();
+		this.category = category;
 		this.price = menuFormDto.getPrice();
 		this.stockNumber = menuFormDto.getStockNumber();
 		this.menuDetail = menuFormDto.getMenuDetail();
@@ -88,5 +94,10 @@ public class Menu extends BaseEntity {
 		this.stockNumber += stockNumber;
 
 	}
-
+	public static Menu createMenu(Category category) {
+		Menu menu = new Menu();
+		menu.setCategory(category);
+		
+	return menu;	
+	}
 }
