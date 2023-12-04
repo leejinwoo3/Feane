@@ -52,7 +52,7 @@ public class MenuService {
 			}
 			System.out.println("a");
 
-			// menuImgService.savaMenuImg(menuImg, menuImgFileList.get(i));
+			menuImgService.savaMenuImg(menuImg, menuImgFileList.get(i));
 			System.out.println("b");
 		}
 
