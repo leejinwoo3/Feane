@@ -34,11 +34,12 @@ public class MenuService {
 
 // 메뉴 테이블 메뉴등록
 	public Long saveMenu(MenuFormDto menuFormDto, List<MultipartFile> menuImgFileList) throws Exception {
+		//1.카테고리 등록
 		Category category = categoryRepository.findById(menuFormDto.getCategoryId())
 				.orElseThrow(EntityNotFoundException::new);
-		Menu menu = menuFormDto.createMenu(category);
-
+		Menu menu = menuFormDto.createMenu(category);//dto->entity
 		menuRepository.save(menu); // insert(저장)
+		
 		for (int i = 0; i < menuImgFileList.size(); i++) {
 			// 부모테이블에 해당하는 entity를 먼저 넣어줘야 한다.
 			MenuImg menuImg = new MenuImg();

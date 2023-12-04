@@ -68,9 +68,9 @@ body {
 			<div class="filters-content">
 				<div class="row grid">
 					<th:block th:each="menu, status:${menus}">
-						<div class="col-sm-4 col-lg-4 all" th:classappend="category + ${menu.category.id}">
-					<!--<div class="col-sm-6 col-lg-4 all burger"
-						th:each="menu, status : ${menus.getContent()}">-->
+						<!--<div class="col-sm-4 col-lg-4 all" th:classappend="category + ${menu.category.id}">-->
+					<div class="col-sm-6 col-lg-4 all burger"
+						th:each="menu, status : ${menus.getContent()}">
 						<div class="box">
 							<div>
 								<a class="img-box" th:href="'/menu/' + ${menu.id}"> <img

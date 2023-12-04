@@ -51,8 +51,8 @@ public class MemberController {
 			customerService.saveCustomer(customerDto, customerImgFileList);
 		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute("errorMessage", "상품등록중 에러가 발생했습니다.");
-			return "menu/menuForm";
+			model.addAttribute("errorMessage", "QA등록중 에러가 발생했습니다.");
+			return "member/qa";
 		}
 		return "redirect:/";
 

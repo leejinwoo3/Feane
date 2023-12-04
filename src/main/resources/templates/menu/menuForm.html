@@ -99,6 +99,16 @@ background-color: white;
 										</label>
 									</div>
 								</div>
+								<div class="col-md-10">
+									<select class="form-select" th:field="*{categoryId}">
+										<option value="">카테고리</option>
+										<option value="1">Burger</option>
+										<option value="2">Pizza</option>
+										<option value="3">Pasta</option>
+										<option value="4">Fries</option>
+									</select>
+									<p th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}" class="fieldError category">Incorrect Data</p>
+								</div>
 							</div>
 
 
@@ -156,8 +166,7 @@ background-color: white;
 
 							<div class="form-group">
 								<div class="col-md-12 d-flex justify-content-center">
-									<button type="button" onclick="beforeSubmit()"
-										class="btn btn-primary mb-3" style="width: 150px;">상품등록</button>
+										<button type="submit" onclick="beforeSubmit()" class="btn btn-primary mb-3" style="width:150px;">상품등록</button>
 								</div>
 							</div>
 
@@ -173,58 +182,46 @@ background-color: white;
 </div>
 <th:block layout:fragment="script">
 	<script th:inline="javascript">
-		$(document).ready(function() {
-        	var errorMessage = [[${errorMessage}]];
-        	if(errorMessage != null){
-            	alert(errorMessage);
-        	}
-			bindDomEvent();//이벤트를 등록
-		});
+		$(document).ready(function(){
+    	var errorMessage = [[${errorMessage}]];
+    	if(errorMessage != null){
+        	alert(errorMessage);
+    	}
+    	
+		bindDomEvent(); //이벤트를 등록
+	});
 		
-		function inputNumberFormat(obj){
-			let value = obj.value; //입력한 데이터
-			value = Number(value.replaceAll(',',''));//콤마가 있으면 없애준다.
-			
-			if(isNaN(value)){
-				//숫자가 아니면 0으로 바꾼다.
-				obj.value =0;
-				
-				
-			}else{
-				const formatValue = value.toLocaleString('ko-KR');
-				obj.value =formatValue;
-			}
+	//천단위 콤마찍는 함수
+	function inputNumberFormat(obj) {
+		let value = obj.value;
+		value = Number(value.replaceAll(',', ''));
+		if(isNaN(value)) { //숫자가 아니면 0으로 바꾼다
+			obj.value = 0;
+		}else {
+			const formatValue = value.toLocaleString('ko-KR');
+			obj.value = formatValue;
 		}
+	}
 		
-		 function beforeSubmit() {
-			 const f = document.menuForm;
-			 let price = f.price.value;
-			 f.price.value = Number(price.replaceAll(',', '')); //price는 int값이므로 천단위 콤마제거
-			 
-			 f.submit();
-		 }
+		//상품등록 버튼을 누를때 천단위 콤마를 제거한후 전송한다
+	
 		
 		
 		
 		//파일 첨부시 확장자가 이미지 파일인지 검사한다.
-		function bindDomEvent() {
-			$(".custom-file-input").on(
-					"change",
-					function() {
-						var fileName = $(this).val().split("\\").pop(); //이미지 파일명
-						var fileExt = fileName.substring(fileName
-								.lastIndexOf(".") + 1); // 확장자 추출
-						fileExt = fileExt.toLowerCase(); //소문자 변환
+	   function bindDomEvent(){
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();  //이미지 파일명
+            var fileExt = fileName.substring(fileName.lastIndexOf(".")+1); // 확장자 추출
+            fileExt = fileExt.toLowerCase(); //소문자 변환
 
-						if (fileExt != "jpg" && fileExt != "jpeg"
-								&& fileExt != "gif" && fileExt != "png"
-								&& fileExt != "bmp") {
-							alert("이미지 파일만 등록이 가능합니다.");
-							return;
-						}
+            if(fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp"){
+                alert("이미지 파일만 등록이 가능합니다.");
+                return;
+            }
 
-						$(this).siblings(".custom-file-label").html(fileName);
-					});
+            $(this).siblings(".custom-file-label").html(fileName);
+        });
 		}
 	</script>
 </th:block>
