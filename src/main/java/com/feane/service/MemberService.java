@@ -1,5 +1,7 @@
 package com.feane.service;
 
+import java.util.List;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -52,5 +54,10 @@ public class MemberService implements UserDetailsService {
 	public Member findByEmail(String email) {
 		return memberRepository.findByEmail(email);
 	}
-
+	// 관리자 리스트
+		public List<Member> getAdminList(){
+			List<Member> adminList = memberRepository.getAdminList();
+			
+			return adminList;
+		}
 }

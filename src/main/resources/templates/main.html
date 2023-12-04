@@ -153,32 +153,35 @@ body {
 			</div>
 
 		</div>
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<nav
-					th:with="start=${(menus.number/maxPage)*maxPage + 1}
+<div class="row">
+        <div class="col-md-12 text-center">
+           <nav th:with="start=${(menus.number/maxPage)*maxPage + 1}
 			                 ,end=(${(menus.totalPages == 0) ? 1 : (start + (maxPage - 1) < menus.totalPages ? start + (maxPage - 1) : menus.totalPages)})"
-					aria-label="Page navigation example">
-					<ul class="pagination d-flex justify-content-center"
-						style="margin-top: 20px">
-
-						<li class="page-item" th:classappend="${menus.first}?'disabled'"><a
-							class="page-link"
-							th:href="@{'/' + '?searchQuery=' + ${menuSearchDto.searchQuery} + '&page=' + ${menus.number - 1}}">이전</a></li>
-
-						<li class="page-item"
-							th:each="page: ${#numbers.sequence(start, end)}"
-							th:classappend="${menus.number eq page-1}?'active':''"><a
-							class="page-link" th:inline="text"
-							th:href="@{'/' + '?searchQuery=' + ${menuSearchDto.searchQuery} + '&page=' + ${page - 1}}">[[${page}]]</a></li>
-
-						<li class="page-item" th:classappend="${menus.last}?'disabled'"><a
-							class="page-link"
-							th:href="@{'/' + '?searchQuery=' + ${menuSearchDto.searchQuery} + '&page=' + ${menus.number + 1}}">다음</a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+							aria-label="Page navigation example">
+							<ul class="pagination d-flex justify-content-center">
+							
+								<li class="page-item" th:classappend="${menus.first}?'disabled'">
+									<a class="page-link"
+									th:href="@{'/menus/' + ${menus.number - 1}}">이전</a>
+								</li>
+								
+								<li class="page-item"
+									th:each="page: ${#numbers.sequence(start, end)}"
+									th:classappend="${menus.number eq page-1}?'active':''">
+									<a
+									class="page-link" th:inline="text"
+									th:href="@{'/menus/' + ${page - 1}}">[[${page}]]</a>
+								</li>
+								
+								<li class="page-item" th:classappend="${menus.last}?'disabled'">
+									<a class="page-link"
+									th:href="@{'/menus/' + ${menus.number + 1}}">다음</a>
+								</li>
+								
+							</ul>
+						</nav>
+        </div>
+    </div>
 	</section>
 
 	<div>
@@ -196,7 +199,7 @@ body {
 							<div class="heading_container">
 								<h2>Let's start Burger King with us</h2>
 							</div>
-							<p>세계 최대 글로벌 외식 브랜드 중 하나인 버거킹은 1954년 미국 마이애미에서 시작하여 괄목할 만한
+							<p>세계 최대 글로벌 외식 브랜드 중 하나인 feane은 1954년 미국 마이애미에서 시작하여 괄목할 만한
 								성장과 함께 1,400만명 이상의 버거킹 매니아들에게 큰 사랑을 받고 있습니다. 'TASTE IS KING' 이라는
 								슬로건으로 그 어떤 햄버거보다 최고의 맛과 품질을 선보이고 있으며 고객을 위한 버거킹의 최고의 서비스는 앞으로도
 								계속 될 것입니다.</p>
@@ -218,7 +221,7 @@ body {
 				<div class="owl-carousel client_owl-carousel">
 
 					<!-- 반복  -->
-					<div class="item"
+					<div class="members"
 						th:each="customer, status: ${customers.getContent()}">
 
 

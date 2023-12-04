@@ -10,13 +10,10 @@ import com.feane.dto.MenuSearchDto;
 import com.feane.entity.Menu;
 
 public interface MenuRepositoryCustom {
-	Page<Menu> getAdminMenuPage(MenuSearchDto menuSearchDto,Pageable pageable);
-	
-	/*
-	 * Page<MainMenuDto>getMainMenuPage(MenuSearchDto menuSearchDto,Pageable
-	 * pageable);
-	 */
+	Page<Menu> getAdminMenuPage(MenuSearchDto menuSearchDto, Pageable pageable);
 
 	List<MainMenuDto> getMainMenuList();
-	
+
+	Page<MainMenuDto> getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable);
+
 }

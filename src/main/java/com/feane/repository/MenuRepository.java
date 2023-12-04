@@ -29,8 +29,9 @@ public interface MenuRepository extends JpaRepository<Menu, Long>, MenuRepositor
 	@Query("select m from Menu m where m.menuNm = :menuNm and m.menuSellStatus = :sell")
 	List<Menu> findByMenuNmAndMenuSellStatus2(@Param("menuNm") String menuNm, @Param("sell") MenuSellStatus sell);
 
+	
 
-	
-	
+
+
 	
 }

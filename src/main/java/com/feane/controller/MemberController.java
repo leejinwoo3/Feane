@@ -17,6 +17,7 @@ import com.feane.dto.MemberFormDto;
 import com.feane.entity.Member;
 import com.feane.service.CustomerService;
 import com.feane.service.MemberService;
+import com.feane.service.MenuService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,7 @@ public class MemberController {
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
 	private final CustomerService customerService;
-
+	private final MenuService menuService;
 	// 글쓰기
 	@GetMapping(value = "/members/qa")
 	public String qa(Model model) {
@@ -119,7 +120,7 @@ public class MemberController {
 			Member member = Member.createMember(memberFormDto, passwordEncoder);
 			memberService.saveMember(member);
 
-		} catch (Exception e) {
+		} catch (IllegalStateException e) {
 			model.addAttribute("errorMessage", e.getMessage());
 			return "member/memberForm";
 		}

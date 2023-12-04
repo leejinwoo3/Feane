@@ -31,11 +31,11 @@ public class MenuService {
 	private final MenuImgService menuImgService;
 	private final MenuImgRepository menuImgRepository;
 	private final CategoryRepository categoryRepository;
-	
+
 // 메뉴 테이블 메뉴등록
 	public Long saveMenu(MenuFormDto menuFormDto, List<MultipartFile> menuImgFileList) throws Exception {
 		Category category = categoryRepository.findById(menuFormDto.getCategoryId())
-				   .orElseThrow(EntityNotFoundException::new);
+				.orElseThrow(EntityNotFoundException::new);
 		Menu menu = menuFormDto.createMenu(category);
 
 		menuRepository.save(menu); // insert(저장)
@@ -51,7 +51,7 @@ public class MenuService {
 			}
 			System.out.println("a");
 
-			//menuImgService.savaMenuImg(menuImg, menuImgFileList.get(i));
+			// menuImgService.savaMenuImg(menuImg, menuImgFileList.get(i));
 			System.out.println("b");
 		}
 
@@ -87,6 +87,7 @@ public class MenuService {
 		}
 		return menu.getId();
 	}
+
 //메뉴 관리
 	@Transactional(readOnly = true)
 	public Page<Menu> getAdminMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
@@ -94,31 +95,33 @@ public class MenuService {
 
 		return menuPage;
 	}
+
 	// 카테고리 리스트
-	public List<Category> getCategoryList(){
+	public List<Category> getCategoryList() {
 		List<Category> categoryList = categoryRepository.findAll();
-		
+
 		return categoryList;
 	}
-	
+
 	// 서버 최초 실행 시 카테고리 등록
 	public Category saveCategory(Category category) {
 		Category saveCategory = categoryRepository.save(category);
-		
+
 		return saveCategory;
 	}
-	/*
-	 * @Transactional(readOnly = true) public Page<MainMenuDto>
-	 * getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
-	 * Page<MainMenuDto> mainMenuPage =
-	 * menuRepository.getMainMenuPage(menuSearchDto, pageable); return mainMenuPage;
-	 * }
-	 */
+
+	@Transactional(readOnly = true)
+	public Page<MainMenuDto> getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
+		Page<MainMenuDto> mainMenuPage = menuRepository.getMainMenuPage(menuSearchDto, pageable);
+		return mainMenuPage;
+	}
 
 	public void deleteMenu(Long menuId) {
 		Menu menu = menuRepository.findById(menuId).orElseThrow(EntityNotFoundException::new);
 
 		menuRepository.delete(menu);
 	}
+
+	
 
 }

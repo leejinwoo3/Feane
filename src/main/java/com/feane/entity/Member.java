@@ -65,7 +65,19 @@ public class Member {
 		return member;
 	}
 
-
+	public static Member createMaster(PasswordEncoder passwordEncoder) {
+		String password = passwordEncoder.encode("12345678");
+		
+		Member member = new Member();
+		
+		member.setName("master");
+		member.setEmail("master@naver.com");
+		member.setPassword(password);
+		member.setAddress("서울시");
+		member.setRole(Role.ADMIN);
+		
+		return member;
+	}
 
 	
 }

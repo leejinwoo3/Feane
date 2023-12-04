@@ -1,5 +1,8 @@
 package com.feane.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,6 +18,7 @@ import lombok.ToString;
 @ToString
 public class Category {
 	@Id
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@Column(name="category_id")
 	private Long id;
 	

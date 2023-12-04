@@ -45,7 +45,7 @@ public class MenuRepositoryCustomImpl implements MenuRepositoryCustom {
 	}
 
 	/*
-	 * @Override public public List<MainMenuDto> getMainMenuList(MenuSearchDto
+	 * @Override public public List<MainMenuDto> getMainMenuPage(MenuSearchDto
 	 * menuSearchDto, Pageable pageable) { QMenu menu = QMenu.menu; QMenuImg menuImg
 	 * = QMenuImg.menuImg;
 	 * 
@@ -60,8 +60,9 @@ public class MenuRepositoryCustomImpl implements MenuRepositoryCustom {
 	 * .where(menuImg.repimgYn.eq("Y")).where(menuNmLike(menuSearchDto.
 	 * getSearchQuery())).fetchOne();
 	 * 
-	 * return new PageImpl<>(content,pageable,total); }
+	 * return new PageImpl<>(content, pageable, total); }
 	 */
+
 	private BooleanExpression menuNmLike(String searchQuery) {
 		return StringUtils.isEmpty(searchQuery) ? null : QMenu.menu.menuNm.like("%" + searchQuery + "%");
 	}
@@ -107,4 +108,21 @@ public class MenuRepositoryCustomImpl implements MenuRepositoryCustom {
 
 		return content;
 	}
+
+	@Override
+	public Page<MainMenuDto> getMainMenuPage(MenuSearchDto menuSearchDto, Pageable pageable) {
+		QMenu menu = QMenu.menu;
+		QMenuImg menuImg = QMenuImg.menuImg;
+		List<MainMenuDto> content = queryFactory
+				.select(new QMainMenuDto(menu.id, menu.menuNm, menu.menuDetail, menuImg.imgUrl, menu.price, menu.category))
+				.from(menuImg).join(menuImg.menu, menu).where(menuImg.repimgYn.eq("Y"))
+				.where(menuNmLike(menuSearchDto.getSearchQuery())).orderBy(menu.id.desc()).offset(pageable.getOffset())
+				.limit(pageable.getPageSize()).fetch();
+
+		long total = queryFactory.select(Wildcard.count).from(menuImg).join(menuImg.menu, menu)
+				.where(menuImg.repimgYn.eq("Y")).where(menuNmLike(menuSearchDto.getSearchQuery())).fetchOne();
+
+		return new PageImpl<>(content, pageable, total);
+	}
+
 }

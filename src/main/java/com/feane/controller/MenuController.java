@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,7 +41,8 @@ public class MenuController {
 	private final CustomerService customerService;
 
 	@GetMapping(value = "/menu/feane")
-	public String menushopList(Model model, MenuSearchDto menuSearchDto, Optional<Integer> page) {
+	public String menushopList(Model model, MenuSearchDto menuSearchDto, Optional<Integer> page, Authentication authentication) {
+
 		Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
 		Page<MainMenuDto> menus = menuService.getMainMenuPage(menuSearchDto, pageable);
 
